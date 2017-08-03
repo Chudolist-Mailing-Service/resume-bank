@@ -1,5 +1,5 @@
-1. Concept (not to edit)
--------
+1  Concept (not to edit)
+------------------------
 
 ### Existing situation
 
@@ -17,7 +17,7 @@ Motivation:
 - immediate interest/response for resumes in mailing list is quite low 
 - listing of resumes 'in active search' will help people find  more jobs 
 
-2. Design (to edit/rewrite)
+2  Design (to edit/rewrite)
 ---------------------------
 
 Components needed :
@@ -38,35 +38,35 @@ Comments:
 3. User scenarios (to comment/refine)
 -------------------------------------
 
-## Participants:
+### Participants:
 
-#### People:
+**People**:
  - Endorser (E) - a mailing list subscriber who proposes to send a resume
  - Person (P) - a person who's name is actualy on a resume 
  - Subscribers (Subs) - a mailing list subscriber 
  - Admin (A) - a mailing list maintainer in need of more tools to satisfy Subscribers
  
-#### Machines:
+**Machines**:
  - List: mailing list, served by GNU Mailmain (hosted at EC2) 
  - Bot: e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@mymailinglist.com> 
  
-#### Content:
+**Content**:
  - Msg: e-mail message
  - Resume Listing (Listing) - a page with a list of resumes
  
-## Worklow:
+### Worklow:
 
-#### Prelude:
+##### Prelude:
 - E talks to A: *"hey, got a this chaps' resume, why not send it to the list?"*
 - A: *"OK, please tell me what this lil' bastard wants and give me his resume file"*
 - E sends email Msg to A with some text about P and resume file(s) in attachment
 
-#### Current flow:
+##### Current flow:
 - A sends Msg to List 
 - Subs glance at Msg
 - Msg is forgotten next day, nothing happens
 
-### Target flow:
+##### Target flow:
 - Admin sends Msg to List and to Bot
 - Bot:
   - extracts Msg text and attachments into database fields
@@ -80,18 +80,18 @@ Comments:
   
 - P gets hired to a new great job, everyone is happy
 
-### Clean up:
+##### Clean up:
 - some feedback loop to see what happened to a resume
 - depreciation procedure to put resume off the list
 
 
-4. TODO
+4 TODO
 -------
 
 Before task:
-- read this document (0h)
-- provide examples of your work, eg links to app or other (0h)
-- something about your approach (favoured tools, how you go about testing the app)
+- read this document 
+- provide examples of your work, eg links to app
+- something about your approach, eg favoured tools, how you go about testing the app
 
 Based on this information I select someone for the current task below.
 
@@ -101,5 +101,3 @@ Current task:
   - [ ] list and describe building blocks and functionalities
   - [ ] advice/options for implementation by block (like file storage: S3, Mongo)  
   - [ ] how would you test each block
-
-
