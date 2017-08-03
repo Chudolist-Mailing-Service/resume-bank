@@ -1,15 +1,18 @@
 Concept 
 -------
 
-**Existing**: 
+### Existing situation
+
 - I have a mailing list among university classmates where I occasionally (once a week) send people resumes 
 (as attached Word/pdf files), among other messages. 
 - The mailing list in newsletter style, powered  by GNU Mailman.
 
-**Target**: I want to keep a repository of these files and send out a listing of recent resumes to subscribers 
+### Target
+
+I want to keep a repository of these files and send out a listing of recent resumes to subscribers 
 or redirect subscribers to a webpage with such listing. 
 
-**Motivation**: 
+Motivation: 
 - people send out some resumes of their friends/relatives, but immediate interest/response
 is quite low 
 - having a listing of resumes 'in active search' (or passive, actually) may serve to more people finding jobs 
@@ -78,10 +81,10 @@ TODO
 I want someone to describe this requirement/design in more detail, that will be ready to 
 give to individual developpers. Specifically I need:
 
-  a) refine concept above    
-  b) go over and seggest clarifications to user scenarios descriptions above  
-  c) propos design in section above (building blocks and functionalities)  
-  d) give advice/options for implementation  in design section (like file storage: AWS, Mongo)  
+  1. refine concept above    
+  2. go over and seggest clarifications to user scenarios descriptions above  
+  3. propos design in section above (building blocks and functionalities)  
+  4. give advice/options for implementation  in design section (like file storage: AWS, Mongo)  
 
 Comments:
  - in all of the above better separate basic functionality / additions - this is highly appreciated. 
