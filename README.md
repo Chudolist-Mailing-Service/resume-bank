@@ -1,4 +1,4 @@
-Concept (not to edit)
+1. Concept (not to edit)
 -------
 
 ### Existing situation
@@ -17,8 +17,8 @@ Motivation:
 - immediate interest/response for resumes in mailing list is quite low 
 - listing of resumes 'in active search' will help people find  more jobs 
 
-Design (to edit)
-----------------
+2. Design (to edit/rewrite)
+---------------------------
 
 Components needed :
 
@@ -30,8 +30,13 @@ Components needed :
 4. a  frontpage of current resumes with authorisation, that I can possibly send as body of e-mail message
 5. a database of mailing list subscribers 
 
-User scenarios (to comment)
-----------------------------
+Comments:
+ - in all of the above better separate basic functionality / additions - this is highly appreciated. 
+ - Python microframeworks are preffered choice (eg Flask)
+ - strictly no WordPress-like solutions 
+
+3. User scenarios (to comment/refine)
+-------------------------------------
 
 ## Participants:
 
@@ -80,18 +85,21 @@ User scenarios (to comment)
 - depreciation procedure to put resume off the list
 
 
-TODO
----- 
+4. TODO
+-------
 
-I want someone to describe this requirement/design in more detail, that will be ready to 
-give to individual developpers. Specifically I need:
+Before task:
+- read this document (0h)
+- provide examples of your work, eg links to app or other (0h)
+- something about your approach (favoured tools, how you go about testing the app)
 
-  1. refine concept above    
-  2. go over and seggest clarifications to user scenarios descriptions above  
-  3. propos design in section above (building blocks and functionalities)  
-  4. give advice/options for implementation  in design section (like file storage: AWS, Mongo)  
+Based on this information I select someone for the current task below.
 
-Comments:
- - in all of the above better separate basic functionality / additions - this is highly appreciated. 
- - Python microframeworks are preffered choice (eg Flask)
- - strictly no WordPress-like solutions 
+Current task:
+- [ ] indicate weak point/ambiguitites in user scenarios (0.5-1h)
+- [ ] outline your design in section 2 based on text written (1-1.5h) with focus on:
+  - [ ] list and describe building blocks and functionalities
+  - [ ] advice/options for implementation by block (like file storage: S3, Mongo)  
+  - [ ] how would you test each block
+
+
