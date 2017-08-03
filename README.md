@@ -1,4 +1,4 @@
-Concept 
+Concept (not to edit)
 -------
 
 ### Existing situation
@@ -9,16 +9,17 @@ Concept
 
 ### Target
 
-I want to keep a repository of these files and send out a listing of recent resumes to subscribers 
-or redirect subscribers to a webpage with such listing. 
+I want to do the following:
+ - keep a repository of resume files and supporting information 
+ - send out a listing of recent resumes to subscribers or redirect subscribers to a webpage with such listing. 
 
 Motivation: 
-- people send out some resumes of their friends/relatives, but immediate interest/response
-is quite low 
-- having a listing of resumes 'in active search' (or passive, actually) may serve to more people finding jobs 
+- immediate interest/response for resumes in mailing list is quite low 
+- listing of resumes 'in active search' will help people find  more jobs 
 
-Design
-------
+Design (to edit)
+----------------
+
 Components needed :
 
 1. file storage (AWS S3 or NoSQL database)
@@ -29,48 +30,52 @@ Components needed :
 4. a  frontpage of current resumes with authorisation, that I can possibly send as body of e-mail message
 5. a database of mailing list subscribers 
 
-User scenarios
---------------
+User scenarios (to comment)
+----------------------------
 
-**Participants**:
+## Participants:
 
-People:
- - Endorser (E) - a mailing list subscriber who sends a resume
- - Resume Person (RP) - a person who's name is actualy on a resume 
- - Subscribers(Subs) - a mailing list subscriber 
- - Admin(A) - a mailing list God in need of more tools to satisfy the constituents Subscribers
+#### People:
+ - Endorser (E) - a mailing list subscriber who proposes to send a resume
+ - Person (P) - a person who's name is actualy on a resume 
+ - Subscribers (Subs) - a mailing list subscriber 
+ - Admin (A) - a mailing list maintainer in need of more tools to satisfy Subscribers
  
-Machines:
- - List: mailing list, served by GNU Mailmain  
- - Bot: e-mail bot to handle messages with resumes
+#### Machines:
+ - List: mailing list, served by GNU Mailmain (hosted at EC2) 
+ - Bot: e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@mymailinglist.com> 
  
-Content:
+#### Content:
  - Msg: e-mail message
  - Resume Listing (Listing) - a page with a list of resumes
  
-**Worklow**:
+## Worklow:
 
-Prelude:
+#### Prelude:
 - E talks to A: *"hey, got a this chaps' resume, why not send it to the list?"*
-- A: *"OK, please tell me what this lil' bastard wants and give me the resume file"*
-- E sends email Msg to A with some text about RP and resume file(s) in attachment
+- A: *"OK, please tell me what this lil' bastard wants and give me his resume file"*
+- E sends email Msg to A with some text about P and resume file(s) in attachment
 
-Current:
+#### Current flow:
 - A sends Msg to List 
 - Subs glance at Msg
 - Msg is forgotten next day, nothing happens
 
-Target:
-- A sends Msg to Bot and List 
+### Target flow:
+- Admin sends Msg to List and to Bot
 - Bot:
   - extracts Msg text and attachments into database fields
   - allows Admin to edit fields
   - prepairs a listing of recent resumes
-- A or Bot (or Bot at command of A) sends resume listing to List at end of week (or Wednesday)
-- Subs read the listing: *"Ahh! Here are is that lil' bastard resume I noticed a week ago. Why not send it to our HR    department, they have a new opening."*
-- RP gets hired to a new great job, everyone is happy
+- Admin or Bot (or Bot at command of A) sends resume listing to maining list at end of week (or Wednesday)
+- Subs read the listing: 
 
-Clean up:
+  > "Ahh! Here are is that lil' bastard resume I noticed a week ago. 
+  > Why not send it to our HR  department, they have a new  opening."
+  
+- P gets hired to a new great job, everyone is happy
+
+### Clean up:
 - some feedback loop to see what happened to a resume
 - depreciation procedure to put resume off the list
 
