@@ -1,20 +1,22 @@
 Concept 
 -------
 
-**Existing**: I have a mailing list among university classmates where I occasionally (once a week) send people resumes 
-(as attached Word/pdf files), among other messages. The mailing list in newsletter style, powered 
-by GNU Mailman.
+**Existing**: 
+- I have a mailing list among university classmates where I occasionally (once a week) send people resumes 
+(as attached Word/pdf files), among other messages. 
+- The mailing list in newsletter style, powered  by GNU Mailman.
 
 **Target**: I want to keep a repository of these files and send out a listing of recent resumes to subscribers 
 or redirect subscribers to a webpage with such listing. 
 
-**Motivation**: people send out some resumes of their friends/relatives or their own, but immediate interest/response
-is quite low - the idea is that having a listing of resumes 'in active search' (or passive, actually) may serve to more people finding jobs and better selection of staff for those who hire.
-
+**Motivation**: 
+- people send out some resumes of their friends/relatives, but immediate interest/response
+is quite low 
+- having a listing of resumes 'in active search' (or passive, actually) may serve to more people finding jobs 
 
 Design
 ------
-My understing that to this I need:
+Components needed :
 
 1. file storage (AWS S3 or NoSQL database)
 2. file placement procedure (ideally an additional mailing address <resume@mymailinglist.com>, 
@@ -30,22 +32,25 @@ User scenarios
 **Participants**:
 
 People:
- - Endorser (E) - a mailing list subscriber who sends out his friend/relative resume
+ - Endorser (E) - a mailing list subscriber who sends a resume
  - Resume Person (RP) - a person who's name is actualy on a resume 
- - Subscribers(Subs) - a mailing list subscriber(s) who is astonished to recieve this resume and with some luck hires Resume Person
- - Admin(A) - a mailing list god in need of more tools to satisfy the constituents (Subscribers, Endorsers)
+ - Subscribers(Subs) - a mailing list subscriber 
+ - Admin(A) - a mailing list God in need of more tools to satisfy the constituents Subscribers
  
 Machines:
- - List: Mailman mailing list  
- - Msg: e-mail message
+ - List: mailing list, served by GNU Mailmain  
  - Bot: e-mail bot to handle messages with resumes
-
+ 
+Content:
+ - Msg: e-mail message
+ - Resume Listing (Listing) - a page with a list of resumes
+ 
 **Worklow**:
 
 Prelude:
 - E talks to A: *"hey, got a this chaps' resume, why not send it to the list?"*
 - A: *"OK, please tell me what this lil' bastard wants and give me the resume file"*
-- E sends email Msg to A with some text and attachment(s)
+- E sends email Msg to A with some text about RP and resume file(s) in attachment
 
 Current:
 - A sends Msg to List 
@@ -55,7 +60,7 @@ Current:
 Target:
 - A sends Msg to Bot and List 
 - Bot:
-  - extracts Msg text and attachments into fields
+  - extracts Msg text and attachments into database fields
   - allows Admin to edit fields
   - prepairs a listing of recent resumes
 - A or Bot (or Bot at command of A) sends resume listing to List at end of week (or Wednesday)
