@@ -35,8 +35,8 @@ Comments:
  - Python microframeworks are preffered choice (eg Flask)
  - strictly no WordPress-like solutions 
 
-3. User scenarios (to comment/refine)
--------------------------------------
+3 User scenarios (to comment/refine)
+------------------------------------
 
 ### Participants:
 
