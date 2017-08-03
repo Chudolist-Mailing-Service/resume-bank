@@ -77,10 +77,10 @@ TODO
 I want someone to describe this requirement/design in more detail, that will be ready to 
 give to individual developpers. Specifically I need:
 
-  a) refine concept above
-  b) go over and seggest clarifications to user scenarios descriptions above
-  c) propos design in section above (building blocks and functionalities)
-  d) give advice/options for implementation  in design section (like file storage: AWS, Mongo)
+  a) refine concept above    
+  b) go over and seggest clarifications to user scenarios descriptions above  
+  c) propos design in section above (building blocks and functionalities)  
+  d) give advice/options for implementation  in design section (like file storage: AWS, Mongo)  
 
 Comments:
  - in all of the above better separate basic functionality / additions - this is highly appreciated. 
