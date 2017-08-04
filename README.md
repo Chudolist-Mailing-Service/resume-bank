@@ -95,7 +95,7 @@ Admin (this can be later changed to bot functionality a bot can send a message- 
 
 Subscribers:
   - [ ] Subscriber goes to a listing page
-  - [x] Sub authenticates at listing page 
+  - [x] Sub authenticates at listing page
   - [x] Sub browses the job listings
 
 - [ ] Person gets hired to a new great job, everyone is happy
