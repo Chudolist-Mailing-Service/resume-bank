@@ -1,3 +1,12 @@
+TODO:
+-----
+
+- [ ] indicate weak point/ambiguitites in user scenarios (0.5-1h)
+- [ ] outline your design in section 2 (1-1.5h) with focus on:
+  - [ ] list and describe building blocks and functionalities
+  - [ ] advice/options for implementation by block (like file storage: S3, Mongo)  
+  - [ ] how would you test each block
+
 1  Concept (not to edit)
 ------------------------
 
@@ -6,16 +15,15 @@
 - I have a mailing list among university classmates where I occasionally (once a week) send people resumes 
 (as attached Word/pdf files), among other messages. 
 - The mailing list in newsletter style, powered  by GNU Mailman.
+- Immediate interest/response for resumes in mailing list is quite low
 
-### Target
+### Target functionality
 
-I want to do the following:
- - keep a repository of resume files and supporting information 
- - send out a listing of recent resumes to subscribers or redirect subscribers to a webpage with such listing. 
+Listing of resumes 'in active search' will help people find  more jobs: 
 
-Motivation: 
-- immediate interest/response for resumes in mailing list is quite low 
-- listing of resumes 'in active search' will help people find  more jobs 
+ - Keep a repository of resume files and supporting information 
+ - Send out a listing of recent resumes to subscribers or redirect subscribers to a webpage with such listing. 
+
 
 2  Design (to edit/rewrite)
 ---------------------------
@@ -27,13 +35,25 @@ Components needed :
   which adds message body anа attahcments to database)
 3. editing/categorising on resumes by admin on a separate web page or a set of config files or both
   (assign an industry of job, job level, other categories/flags or parameters)
-4. a  frontpage of current resumes with authorisation, that I can possibly send as body of e-mail message
+4. a frontpage of current resumes with authorisation
+   - a frontpage must also fit as email message body
 5. a database of mailing list subscribers 
 
-Comments:
- - in all of the above better separate basic functionality / additions - this is highly appreciated. 
- - Python microframeworks are preffered choice (eg Flask)
- - strictly no WordPress-like solutions 
+Design solutions:
+
+database (emails, files, people):
+  - mongodb
+
+framework:
+  - flask
+
+admin page:
+  - bootstrap for design, python django framework and mongodb and digital ocean for cloud hosting
+
+hosting:
+  - ec2/ digital ocean 
+  - AWS services?
+
 
 3 User scenarios (to comment/refine)
 ------------------------------------
@@ -72,7 +92,9 @@ Comments:
   - extracts Msg text and attachments into database fields
   - allows Admin to edit fields
   - prepairs a listing of recent resumes
-- Admin or Bot (or Bot at command of A) sends resume listing to maining list at end of week (or Wednesday)
+- Admin sends resume listing to maining list at end of week (or Wednesday)
+  - as link to listing page
+  - inside message body
 - Subs read the listing: 
 
   > "Ahh! Here are is that lil' bastard resume I noticed a week ago. 
@@ -85,19 +107,14 @@ Comments:
 - depreciation procedure to put resume off the list
 
 
-4 TODO
--------
+4 Add-ons
+----------
 
-Before task:
-- read this document 
-- provide examples of your work, eg links to app
-- something about your approach, eg favoured tools, how you go about testing the app
+#### Bot send e-mail itself to list
 
-Based on this information I select someone for the current task below.
+send out e-mail:
+- mail chimp
+- sendgrid
+- other?
 
-Current task:
-- [ ] indicate weak point/ambiguitites in user scenarios (0.5-1h)
-- [ ] outline your design in section 2 based on text written (1-1.5h) with focus on:
-  - [ ] list and describe building blocks and functionalities
-  - [ ] advice/options for implementation by block (like file storage: S3, Mongo)  
-  - [ ] how would you test each block
+
