@@ -7,26 +7,24 @@ TODO:
   - [ ] advice/options for implementation by block (like file storage: S3, Mongo)  
   - [ ] how would you test each block
 
-1  Concept (not to edit)
-------------------------
+1  Concept 
+----------
 
 ### Existing situation
 
 - I have a mailing list among university classmates where I occasionally (once a week) send people resumes 
 (as attached Word/pdf files), among other messages. 
 - The mailing list in newsletter style, powered  by GNU Mailman.
-- Immediate interest/response for resumes in mailing list is quite low
+- Immediate interest/response for resumes in mailing list is quite low, listing of resumes 'in active search' will help people find  more jobs: 
 
 ### Target functionality
-
-Listing of resumes 'in active search' will help people find  more jobs: 
 
  - Keep a repository of resume files and supporting information 
  - Send out a listing of recent resumes to subscribers or redirect subscribers to a webpage with such listing. 
 
 
-2  Design (to edit/rewrite)
----------------------------
+2  Design
+---------
 
 Components needed :
 
@@ -55,52 +53,52 @@ hosting:
   - AWS services?
 
 
-3 User scenarios (to comment/refine)
-------------------------------------
+3 User scenarios 
+----------------
 
 ### Participants:
 
-**People**:
+People:
  - Endorser (E) - a mailing list subscriber who proposes to send a resume
  - Person (P) - a person who's name is actualy on a resume 
  - Subscribers (Subs) - a mailing list subscriber 
  - Admin (A) - a mailing list maintainer in need of more tools to satisfy Subscribers
  
-**Machines**:
+Machines:
  - List: mailing list, served by GNU Mailmain (hosted at EC2) 
- - Bot: e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@mymailinglist.com> 
+ - Bot: e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@site.com> 
  
-**Content**:
+Content:
  - Msg: e-mail message
  - Resume Listing (Listing) - a page with a list of resumes
  
 ### Worklow:
 
-##### Prelude:
-- E talks to A: *"hey, got a this chaps' resume, why not send it to the list?"*
-- A: *"OK, please tell me what this lil' bastard wants and give me his resume file"*
-- E sends email Msg to A with some text about P and resume file(s) in attachment
+- [x] marks e-mail bot functionality
 
-##### Current flow:
-- A sends Msg to List 
-- Subs glance at Msg
-- Msg is forgotten next day, nothing happens
+Before bot: 
+- [ ] Endorser talks to Admin: *"please send this resume to mailing list"*
+- [ ] Admin: *"OK, tell me what the guy wants and send me his resume file ()"*
+- [ ] Endorser sends email Msg to A with some text about Person and resume file in attachment
+- [ ] Admin sends email Msg to List and to Bot
+- [ ] GNU Mailman/PostFIX sends email Msg to List 
 
-##### Target flow:
-- Admin sends Msg to List and to Bot
-- Bot:
-  - extracts Msg text and attachments into database fields
-  - allows Admin to edit fields
-  - prepairs a listing of recent resumes
-- Admin sends resume listing to maining list at end of week (or Wednesday)
-  - as link to listing page
-  - inside message body
-- Subs read the listing: 
+An e-mail bot:
+  - [x] accepts e-mail at <resume@site.com> (todo: what program does this and how? - describe in detail) 
+  - [x] extracts Msg text and attachments into database fields (this is AWS lamdba)
+  - [x] provides Admin with admin page to edit fields (this is flask)
+  - [x] provides Admin with a listing of recent resumes at stable URL (this is flask)
 
-  > "Ahh! Here are is that lil' bastard resume I noticed a week ago. 
-  > Why not send it to our HR  department, they have a new  opening."
-  
-- P gets hired to a new great job, everyone is happy
+Admin (this can be later changed to bot functionality a bot can send a message- not todo now):
+  - [ ] manually copy-pastes a link to listing
+  - [ ] sends it to mailing list manually 
+
+Subscribers:
+  - [ ] Subscriber goes to a listing page
+  - [x] Sub authenticates at listing page 
+  - [x] Sub browses the job listings
+
+- [ ] Person gets hired to a new great job, everyone is happy
 
 ##### Clean up:
 - some feedback loop to see what happened to a resume
@@ -110,11 +108,10 @@ hosting:
 4 Add-ons
 ----------
 
-#### Bot send e-mail itself to list
+Bot send e-mail itself to list:
+- prepare html contents for message
 
-send out e-mail:
+Send out e-mail:
 - mail chimp
 - sendgrid
 - other?
-
-
