@@ -65,8 +65,8 @@ People:
  - Admin (A) - a mailing list maintainer in need of more tools to satisfy Subscribers
  
 Machines:
- - List: mailing list, served by GNU Mailmain (hosted at EC2) 
- - Bot: e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@site.com> 
+ - List: existing mailing list, served by GNU Mailmain (hosted at EC2) 
+ - Bot: new e-mail bot to handle messages with resumes (hosted elsewhere on AWS) with address <resume@site.com> 
  
 Content:
  - Msg: e-mail message
@@ -78,8 +78,10 @@ Content:
 
 Before bot: 
 - [ ] Endorser talks to Admin: *"please send this resume to mailing list"*
-- [ ] Admin: *"OK, tell me what the guy wants and send me his resume file ()"*
-- [ ] Endorser sends email Msg to A with some text about Person and resume file in attachment
+- [ ] Admin: *"OK, tell me what the guy wants and send me his resume file"*
+   - "what the guy wants" is Resume Description text
+   - resume file(s) is Word or PDF files
+- [ ] Endorser sends email Msg to A with some text about Person and resume file(s) in attachment
 - [ ] Admin sends email Msg to List and to Bot
 - [ ] GNU Mailman/PostFIX sends email Msg to List 
 
@@ -89,21 +91,22 @@ An e-mail bot:
   - [x] provides Admin with admin page to edit fields (this is flask)
   - [x] provides Admin with a listing of recent resumes at stable URL (this is flask)
 
-Admin (this can be later changed to bot functionality a bot can send a message- not todo now):
+Admin (this can be later changed to bot functionality, a bot can send a message- not todo now):
   - [ ] manually copy-pastes a link to listing
   - [ ] sends it to mailing list manually 
 
-Subscribers:
-  - [ ] Subscriber goes to a listing page
-  - [x] Sub authenticates at listing page
-  - [x] Sub browses the job listings
-
+Subscriber:
+  - [ ] recieves e-mail from List with link
+  - [ ] goes to a listing page in browser/mobile
+  - [x] authenticates at listing page
+  - [x] browses the job listings
+  
+Profit:
 - [ ] Person gets hired to a new great job, everyone is happy
 
 ##### Clean up:
-- some feedback loop to see what happened to a resume
-- depreciation procedure to put resume off the list
-
+- some feedback loop to see what happened to a resume (hired, satisfied)
+- depreciation procedure to put resume off the list, init by Endorser or Person
 
 4 Add-ons
 ----------
